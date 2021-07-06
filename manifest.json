@@ -1,0 +1,39 @@
+{
+	"name": "WeebMode",
+	"description": "Extension to make life easier for weebs.",
+	"version": "1.0",
+	"manifest_version": 3,
+	"permissions": [
+		"storage",
+		"tabs"
+	],
+	"action": {
+		"default_popup": "popup/popup.html"
+	},
+	"icons": {
+		"16": "/img/WeebMode_Icon_16x16.png",
+		"32": "/img/WeebMode_Icon_32x32.png",
+		"48": "/img/WeebMode_Icon_48x48.png",
+		"128": "/img/WeebMode_Icon_128x128.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"	
+			],
+			"js": ["content.js"]
+		}
+	],
+	"background": {
+		"service_worker": "background_code.js"
+	},
+	"options_page": "/options/options.html",
+	"commands": {
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+Q"
+			},
+			"description": "Opens popup.html"
+		}
+	}
+}

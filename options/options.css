@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+* {
+	font-family: 'Acme', sans-serif;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: black;
+}
+
+#bg {
+	position: fixed;
+	opacity: 0.1;
+	z-index: 0;
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+section {
+	text-align: center;
+	padding: 1vh 1vw;
+	margin: 22.5vh 2.5vw;
+	width: 18vw;
+	height: 53vh;
+	background-color: rgba(90, 90, 90, .3);
+	z-index: 1;
+	box-shadow: 5px 5px 5px black;
+}
+
+.option {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	font-size: 22px;
+	margin: 2vh 0vw;
+}
+
+.switch {
+	position: absolute;
+	display: inline-block;
+	width: 48px;
+	height: 23px;
+	transform: translateY(2px);
+	right: 0;
+}
+
+/* Hide default HTML checkbox */
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #E64E41;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 19px;
+	width: 19px;
+	left: 2px;
+	bottom: 2px;
+	background-color: #EDEDED;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .slider {
+	background-color: #33A656;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #33A656;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(25px);
+	-ms-transform: translateX(25px);
+	transform: translateX(25px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+#logo {
+	margin-bottom: 0vh;
+}
