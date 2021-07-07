@@ -1,65 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-* {
-	font-family: 'Acme', sans-serif;
-	color: white;
+*{
 	margin: 0;
 	padding: 0;
 }
-
-body {
-	background-color: black;
+body{
+	background-image: url('../img/options_background_image.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-
-#bg {
+#cover{
 	position: fixed;
-	opacity: 0.1;
-	z-index: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgb(0, 0, 0, 0.6);
+	backdrop-filter: blur(5px);
+	z-index: -1;
 }
-
-main {
+main{
 	display: flex;
-	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100vw;
+	min-height: 100vh;
+	align-items: center;
 	justify-content: center;
 }
-
-section {
-	text-align: center;
-	padding: 1vh 1vw;
-	margin: 22.5vh 2.5vw;
-	width: 18vw;
-	height: 53vh;
-	background-color: rgba(90, 90, 90, .3);
-	z-index: 1;
-	box-shadow: 5px 5px 5px black;
+section{
+	position: relative;
+	width: 300px;
+	min-width: 300px;
+	height: 400px;
+	background-color: rgb(30, 30, 30, 0.7);
+	margin: 5%;
+	box-shadow: black 3px 3px 5px;
 }
-
+section img{
+	margin: 5px 86px;
+}
 .option {
 	position: relative;
-	display: flex;
-	flex-direction: row;
-	font-size: 22px;
-	margin: 2vh 0vw;
+	width: 300px;
+	height: 30px;
+	margin: 5px 0px;
 }
-
+.option-name {
+	position: absolute;
+	left: 5px;
+	font-size: 22px;
+	color: white;
+	font-family: 'Acme', sans-serif;
+}
 .switch {
 	position: absolute;
+	right: 5px;
 	display: inline-block;
 	width: 48px;
 	height: 23px;
 	transform: translateY(2px);
-	right: 0;
 }
-
-/* Hide default HTML checkbox */
-
 .switch input {
 	opacity: 0;
 	width: 0;
 	height: 0;
 }
-
-/* The slider */
-
 .slider {
 	position: absolute;
 	cursor: pointer;
@@ -68,10 +70,9 @@ section {
 	right: 0;
 	bottom: 0;
 	background-color: #E64E41;
-	-webkit-transition: .4s;
-	transition: .4s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
-
 .slider:before {
 	position: absolute;
 	content: "";
@@ -80,34 +81,20 @@ section {
 	left: 2px;
 	bottom: 2px;
 	background-color: #EDEDED;
-	-webkit-transition: .4s;
-	transition: .4s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
-
 input:checked + .slider {
 	background-color: #33A656;
 }
-
-input:focus + .slider {
-	box-shadow: 0 0 1px #33A656;
-}
-
 input:checked + .slider:before {
 	-webkit-transform: translateX(25px);
 	-ms-transform: translateX(25px);
 	transform: translateX(25px);
 }
-
-/* Rounded sliders */
-
 .slider.round {
 	border-radius: 34px;
 }
-
 .slider.round:before {
 	border-radius: 50%;
-}
-
-#logo {
-	margin-bottom: 0vh;
 }
