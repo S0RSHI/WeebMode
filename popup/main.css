@@ -1,61 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 *{
 	margin: 0;
 	padding: 0;
 }
 body {
 	width: 300px;
-	height: 300px;
+	height: 400px;
 	font-family: 'Acme', sans-serif;
 	background: #303030;
 	color: white;
 }
 nav{
 	width: 300px;
-	height: 128px;
+	display: flex;
+	align-items: center;
+	margin: 10px 0px;
+	justify-content: center;
+}
+.hide{
+	display: none;
 }
 .arrow{
-	margin-bottom: 32px;
 	width: 64px;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-	opacity: 0.4;
-}
-.left{
-	margin-left: 22px;
-	transform: scaleX(-1);
+	height: 64px;
+	background-size: cover;
 }
 .arrow:hover{
 	cursor: pointer;
 	filter: contrast(0%);
-
+}
+#left{
+	transform: rotate(180deg);
 }
 section{
-	width: 300px;
-	height: 142px;
+	display: flex;
+	flex-direction: column;
 }
 .option {
-	display: grid;
-	grid-template-columns: 247px 53px;
-	margin-bottom: 5px;
+	position: relative;
+	width: 300px;
+	height: 30px;
+	margin: 5px 0px;
 }
 .option-name {
-	padding-left: 5px;
+	position: absolute;
+	left: 5px;
 	font-size: 22px;
 }
 .switch {
-	position: relative;
+	position: absolute;
+	right: 5px;
 	display: inline-block;
 	width: 48px;
-	height: 22.5px;
+	height: 23px;
 	transform: translateY(2px);
 }
-/* Hide default HTML checkbox */
 .switch input {
 	opacity: 0;
 	width: 0;
 	height: 0;
 }
-/* The slider */
 .slider {
 	position: absolute;
 	cursor: pointer;
@@ -64,8 +67,8 @@ section{
 	right: 0;
 	bottom: 0;
 	background-color: #E64E41;
-	-webkit-transition: .4s;
-	transition: .4s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
 .slider:before {
 	position: absolute;
@@ -75,21 +78,17 @@ section{
 	left: 2px;
 	bottom: 2px;
 	background-color: #EDEDED;
-	-webkit-transition: .4s;
-	transition: .4s;
+	-webkit-transition: .2s;
+	transition: .2s;
 }
 input:checked + .slider {
 	background-color: #33A656;
-}
-input:focus + .slider {
-	box-shadow: 0 0 1px #33A656;
 }
 input:checked + .slider:before {
 	-webkit-transform: translateX(25px);
 	-ms-transform: translateX(25px);
 	transform: translateX(25px);
 }
-/* Rounded sliders */
 .slider.round {
 	border-radius: 34px;
 }
@@ -102,7 +101,7 @@ input:checked + .slider:before {
 	position: absolute;
 	width: 100px;
 	height: 20px;
-	background-image: url(../img/Button.png);
+	background-image: url('../img/Button.png');
 }
 #refresh:hover{
 	opacity: 0.8;

@@ -2,73 +2,49 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="main.css">
 	<title>WeebMode</title>
-	<link rel="stylesheet" href="popup.css">
 </head>
 <body>
-	<main>
-		<nav>
-			<img class="arrow left" src="../img/1200px-Antu_arrow-right.svg.png">
-			<img class="logo" src="../img/WeebMode_Icon_128x128v2.png"  style="display: inline-block;">
-			<img class="logo" src="../img/Character_Icon_128x128v2.png" style="display: none;">
-			<img class="logo" src="../img/Manga_Icon_128x128v2.png" style="display: none;">
-			<img class="arrow right" src="../img/1200px-Antu_arrow-right.svg.png">
-		</nav>
-		<section>
-			<div id="content">		
-				<div class="option">
-					<div class="option-name">Reddit</div>
-					<label class="switch">
-						 <input type="checkbox" >
-						  <span class="slider round"></span>
-					</label>
-				</div>
-				<div class="option">
-					<div class="option-name">Manganelo</div>
-					<label class="switch">
-						 <input type="checkbox">
-						  <span class="slider round"></span>
-					</label>
-				</div>
-				<div class="option">
-					<div class="option-name">Manganelo WebManga</div>
-					<label class="switch">
-						 <input type="checkbox">
-						  <span class="slider round"></span>
-					</label>
-				</div>
-				<div class="option">
-					<div class="option-name">MangaKatana</div>
-					<label class="switch">
-						 <input type="checkbox">
-						  <span class="slider round"></span>
-					</label>
-				</div>
-			</div>
+	<nav>
+		<img src="../img/arrow.png" id="left" class="arrow" alt="previous">
+		<img class="logo"src="../img/WeebMode_Icon_128x128v2.png">
+		<img class="logo hide"src="../img/Manga_Icon_128x128v2.png">
+		<img class="logo hide"src="../img/Character_Icon_128x128v2.png">
+		<img src="../img/arrow.png" id="right" class="arrow" alt="next">
+	</nav>
+	<section class="page">
+		<div class="option">
+			<div class="option-name">Reddit</div>
+			<label class="switch">
+				 <input type="checkbox" >
+				  <span class="slider round"></span>
+			</label>
 		</div>
-		</section>
-		<section style="display: none;">
-			<div class="option">
-				<div class="option-name">Model</div>
-				<label class="switch">
- 					<input type="checkbox" >
-  					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="option">
-				<div class="option-name">Model on left</div>
-				<label class="switch">
- 					<input type="checkbox" >
-  					<span class="slider round"></span>
-				</label>
-			</div>
+	</section>
+	<section  class="page hide">
+		<div class="option">
+			<div class="option-name">MangaKatana</div>
+			<label class="switch">
+				 <input type="checkbox" >
+				  <span class="slider round"></span>
+			</label>
 		</div>
-		</section>
-		<section style="display: none;">
-		</section>
-		<div class="note"><p>After changing settings, refresh page.</p></div>
-		<div id="refresh"></div>
-	</main>
-	<script src="popup.js"></script>
+	</section>
+	<section  class="page hide">
+		<div class="option">
+			<div class="option-name">Show Model</div>
+			<label class="switch">
+				 <input type="checkbox" >
+				  <span class="slider round"></span>
+			</label>
+		</div>
+	</section>
+	<div class="note"><p>After changing settings, refresh page.</p></div>
+	<div id="refresh"></div>
+	<script src="main.js"></script>
 </body>
 </html>
