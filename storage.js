@@ -15,17 +15,13 @@ for (let i = 0; i < document.querySelectorAll('input').length ; i++) {
 		chrome.storage.local.set(currentSwitch);
 	});
 }
-const modelLink = document.getElementsByClassName('modelLink')[0];
-modelLink.addEventListener('click', function() {imgLink();})
+const confirmLink = document.getElementsByClassName('linkConfirm')[0];
+confirmLink.addEventListener('click', function() {imgLink();})
 function imgLink(){
-	if(document.body.offsetHeight > 400){
-		let linkModel = prompt("Enter link to your Model img", "");
-		if(linkModel){
+	let modelLink = document.getElementById('linkModel');
+	if(modelLink.value){
 		let imgLink = {};
-		imgLink['imgLink'] = linkModel;
+		imgLink['imgLink'] = modelLink.value;
 		chrome.storage.local.set(imgLink);
-		}
-	}else{
-		window.open('../options/options.html');
 	}
 }

@@ -98,3 +98,36 @@ input:checked + .slider:before {
 .slider.round:before {
 	border-radius: 50%;
 }
+.modelLink{
+	display: flex;
+	position: absolute;
+	bottom: 5px;
+	border: none;
+	font-size: 20px;
+}
+#linkModel{
+	margin-left: 5px;
+	width: 210px;
+	padding: 0px 5px;
+	border: none;
+	font-size: 20px;
+}
+#linkModel:focus{
+outline: none;
+}
+#linkModel:focus::placeholder{
+	visibility: hidden;
+}
+.linkConfirm{
+	font-family: 'Acme', sans-serif;
+	text-align: center;
+	background-color: rgba(51, 166, 86, 1);
+	color: rgba(255, 255, 255, 1);
+	border-left: 1px solid black;
+	width: 69px;
+	opacity: 0.7;
+}
+.linkConfirm:hover{
+	cursor: pointer;
+	opacity: 1;
+}

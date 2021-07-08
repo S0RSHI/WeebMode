@@ -32,8 +32,10 @@ nav{
 	transform: rotate(180deg);
 }
 section{
+	position: relative;
 	display: flex;
 	flex-direction: column;
+	height: 200px;
 }
 .option {
 	position: relative;
@@ -114,16 +116,34 @@ input:checked + .slider:before {
 	text-align: center;
 }
 .modelLink{
-	margin-top: 10px;
-	left: 0px;
-	width: 300px;
-	color: rgba(78, 155, 255, 1);
-	text-align: center;
-	text-decoration: underline;
+	display: flex;
+	position: absolute;
+	bottom: 0px;
+	border: none;
+	font-size: 20px;
 }
-.modelLink span:hover{
+#linkModel{
+	margin-left: 5px;
+	width: 210px;
+	padding: 0px 5px;
+	border: none;
+	font-size: 20px;
+}
+#linkModel:focus{
+outline: none;
+}
+#linkModel:focus::placeholder{
+	visibility: hidden;
+}
+.linkConfirm{
+	text-align: center;
+	background-color: rgba(51, 166, 86, 1);
+	color: rgba(255, 255, 255, 1);
+	border-left: 1px solid black;
+	width: 69px;
+	opacity: 0.7;
+}
+.linkConfirm:hover{
 	cursor: pointer;
-	color: rgb(70, 253, 46);
-	text-decoration: underline;
-	transition: .3s;
+	opacity: 1;
 }
