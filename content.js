@@ -1,17 +1,22 @@
 //Loading setting from storage
 let activeSwitch = [];
-for (let i = 0; i <= 2; i++) {
+for (let i = 0; i <= 4; i++)
 	chrome.storage.local.get('Switch' + i, function (data) {
 		activeSwitch[i] = data['Switch' + i];
 	});
-}
-//Calling functions
+let imgSrc = '';
+chrome.storage.local.get('imgLink', function (data) {
+	imgSrc = data['imgLink'];
+});
+
 setTimeout(function () {
 	let url = location.href;
 	let counterPost = 0;
 	if (url.includes('reddit.com') && activeSwitch[0]) reddit(counterPost);
 	if (url.includes('mangakatana.com/manga') && activeSwitch[1]) mangaKatana();
-	if (activeSwitch[2]) weebModel();
+	if (url.includes('readmanganato.com') && activeSwitch[2]) manganato();
+	if (url.includes('mangakakalot.com/chapter') && activeSwitch[3]) mangakakalot();
+	if (activeSwitch[4]) weebModel();
 }, 0);
 
 function reddit(counterPost){
@@ -43,18 +48,11 @@ function reddit(counterPost){
 };
 
 function mangaKatana(){
-	let direction = [];
-	document.addEventListener('keyup', e => {
-		if(e.keyCode === 65 || e.keyCode === 37) direction = document.querySelectorAll('.prev');
-		if(e.keyCode === 68 || e.keyCode === 39) direction = document.querySelectorAll('.next');
-		direction.forEach( el => { el.click(); });
-	})
+	let prev = document.querySelectorAll('.prev');
+	let next = document.querySelectorAll('.next');
+	if(!checkFocus())changeChapter(prev, next);
 };
 
-let imgSrc = '';
-chrome.storage.local.get('imgLink', function (data) {
-	imgSrc = data['imgLink'];
-});
 function weebModel(){
 	let link = imgSrc;
 	let img = document.createElement('img');
@@ -63,13 +61,41 @@ function weebModel(){
 	document.body.appendChild(img);
 }
 
-//Check if focus is on something important - reddit
+function manganato(){
+	adsClear();
+	let prev = document.querySelectorAll('.navi-change-chapter-btn-prev');
+	let next = document.querySelectorAll('.navi-change-chapter-btn-next');
+	changeChapter(prev, next);
+}
+
+function mangakakalot(){
+	adsClear();
+	let prev = document.querySelectorAll('.btn-navigation-chap .next');
+	let next = document.querySelectorAll('.btn-navigation-chap .back');
+	changeChapter(prev, next);
+}
+
+//Clear ads
+function adsClear(){
+	let ads = document.querySelectorAll('div');
+	ads.forEach( e => {if(e.classList == '') e.remove();})
+}
+//Next or prev chapter
+function changeChapter(prev, next){
+	let direction = [];
+	document.addEventListener('keyup', e => {
+		if(e.keyCode === 65 || e.keyCode === 37) direction = prev;
+		if(e.keyCode === 68 || e.keyCode === 39) direction = next;
+		if(direction) direction.forEach( el => { el.click(); });
+	})
+}
+//Check if focus is on something important
 function checkFocus(){
 	let active =  document.activeElement;
 	let searchBard = document.getElementById('header-search-bar');
 	let answer = document.querySelectorAll('.public-DraftEditor-content');
 	let inputs = document.querySelectorAll('input');
-	let check =false;
+	let check = false;
 	answer.forEach(el => {if(el === active) check = true;});
 	inputs.forEach(el => {if(el === active) check = true;});
 	if(check) return true;
