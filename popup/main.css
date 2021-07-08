@@ -113,3 +113,17 @@ input:checked + .slider:before {
 	width: 300px;
 	text-align: center;
 }
+.modelLink{
+	margin-top: 10px;
+	left: 0px;
+	width: 300px;
+	color: rgba(78, 155, 255, 1);
+	text-align: center;
+	text-decoration: underline;
+}
+.modelLink span:hover{
+	cursor: pointer;
+	color: rgb(70, 253, 46);
+	text-decoration: underline;
+	transition: .3s;
+}

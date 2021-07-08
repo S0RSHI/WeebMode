@@ -1,8 +1,9 @@
 //Onclick event
 const left = document.getElementById('left');
 const right = document.getElementById('right');
-left.addEventListener('click', function() { changeOptions(false); });
-right.addEventListener('click', function() { changeOptions(true); });
+left.addEventListener('click', function() {changeOptions(false);});
+right.addEventListener('click', function() {changeOptions(true);});
+
 
 //Refresh page
 document.getElementById("refresh").onclick = function() {
