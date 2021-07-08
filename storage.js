@@ -1,3 +1,4 @@
+//Switch
 for (let i = 0; i < document.querySelectorAll('input').length ; i++) {	
 	let option = document.getElementsByTagName('input')[i];
 	//Check if switch exist
@@ -15,6 +16,7 @@ for (let i = 0; i < document.querySelectorAll('input').length ; i++) {
 		chrome.storage.local.set(currentSwitch);
 	});
 }
+//WeebModel link
 const confirmLink = document.getElementsByClassName('linkConfirm')[0];
 confirmLink.addEventListener('click', function() {imgLink();})
 function imgLink(){
