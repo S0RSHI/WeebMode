@@ -51,13 +51,14 @@ function mangaKatana(){
 	let prev = document.querySelectorAll('.prev');
 	let next = document.querySelectorAll('.next');
 	if(!checkFocus())changeChapter(prev, next);
-};
+	scrollButton();
+}
 
 function weebModel(){
 	let link = imgSrc;
 	let img = document.createElement('img');
 	img.src = link;
-	img.style.cssText = 'position: fixed; bottom: -5px; right: 20px; width: 200px; z-index: 2147483648; filter: none';
+	img.style.cssText = 'position: fixed; bottom: -5px; right: 20px; width: 200px; z-index: 2147483647; filter: none';
 	document.body.appendChild(img);
 }
 
@@ -108,4 +109,21 @@ function redditScroll(counter){
 	posts.forEach((el, index)=> {
 		if(index == counter) el.scrollIntoView({ behavior: "smooth", block: "center", inline: "center"});
 	});
+}
+//Scroll Button to top
+function scrollButton(){
+	let div = document.createElement('div');
+	div.id = 'WeebModeScrollButton';
+	let link = document.createElement('a');
+	link.href = '#header';
+	div.appendChild(link);
+	document.body.appendChild(div);
+	let img = document.createElement('img');
+	img.src = 'https://cdn.discordapp.com/attachments/730271005049618506/872856581396660244/arrow.png';
+	link.appendChild(img);
+	let styles = ' #WeebModeScrollButton{position:fixed;right:128px;bottom:128px;z-index:2147483648;background-color:#222;border:1px solid #333}#WeebModeScrollButton :hover{cursor:pointer;background-color:#111}#WeebModeScrollButton img{width:64px;height:64px;transform:rotate(270deg)}html{scroll-behavior: smooth;} ';
+	let styleSheet = document.createElement("style");
+	styleSheet.type = "text/css";
+	styleSheet.innerText = styles;
+	document.head.appendChild(styleSheet);
 }
